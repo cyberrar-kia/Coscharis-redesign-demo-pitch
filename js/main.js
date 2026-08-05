@@ -28,6 +28,30 @@ document.querySelectorAll('.nav-item').forEach((item) => {
   }
 });
 
+// Hero / subhero image carousel — crossfades between multiple real photos,
+// matching the rotating slider on the client's live site.
+document.querySelectorAll('.hero, .subhero').forEach((heroEl) => {
+  const slides = heroEl.querySelectorAll('.hero-slide');
+  const dots = heroEl.querySelectorAll('.hero-dot');
+  if (slides.length < 2) return;
+  let idx = 0;
+  const advance = (to) => {
+    slides[idx].classList.remove('active');
+    if (dots[idx]) dots[idx].classList.remove('active');
+    idx = to !== undefined ? to : (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+    if (dots[idx]) dots[idx].classList.add('active');
+  };
+  let timer = setInterval(() => advance(), 5500);
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(timer);
+      advance(i);
+      timer = setInterval(() => advance(), 5500);
+    });
+  });
+});
+
 // Contact form -> mailto handoff (static site, no backend)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
