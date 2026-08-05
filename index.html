@@ -3,385 +3,266 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coscharis Group — Redesign Concept</title>
+<title>Coscharis Group — Value for Money</title>
+<meta name="description" content="Coscharis Group: Nigerian conglomerate across automobile, technology, mobility, agriculture, healthcare and beverages since 1977.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#10151c;
-    --ink-soft:#1c2531;
-    --paper:#ffffff;
-    --steel:#5b6472;
-    --hair:#e4e2dd;
-    --brass:#b8863e;
-    --brass-light:#e0b872;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter', sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.display{
-    font-family:'Space Grotesk', sans-serif;
-    letter-spacing:-0.01em;
-  }
-  .mono{
-    font-family:'IBM Plex Mono', monospace;
-    letter-spacing:0.02em;
-  }
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-
-  /* ---- Banner ---- */
-  .pitch-banner{
-    background:var(--ink);
-    color:#cfd6de;
-    text-align:center;
-    padding:10px 16px;
-    font-size:12.5px;
-    font-family:'IBM Plex Mono', monospace;
-    letter-spacing:0.03em;
-  }
-  .pitch-banner b{color:var(--brass-light);}
-
-  /* ---- Nav ---- */
-  nav{
-    position:sticky; top:0; z-index:50;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 5%;
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--hair);
-  }
-  .nav-logo{display:flex; align-items:center; gap:10px;}
-  .nav-logo img{height:30px; width:auto;}
-  .nav-links{display:flex; gap:28px; font-size:13.5px; font-weight:500;}
-  .nav-links a{opacity:0.7; transition:opacity .2s;}
-  .nav-links a:hover{opacity:1; color:var(--brass);}
-  .nav-cta{
-    background:var(--ink); color:#fff; padding:10px 20px; border-radius:2px;
-    font-size:13px; font-weight:500;
-  }
-  @media (max-width:860px){ .nav-links{display:none;} }
-
-  /* ---- Hero ---- */
-  .hero{
-    position:relative;
-    min-height:92vh;
-    display:flex; align-items:flex-end;
-    overflow:hidden;
-  }
-  .hero-bg{
-    position:absolute; inset:0;
-    background-size:cover; background-position:center;
-    animation:kenburns 16s ease-in-out infinite alternate;
-  }
-  @keyframes kenburns{ from{transform:scale(1);} to{transform:scale(1.08);} }
-  .hero-scrim{
-    position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(16,21,28,0.35) 0%, rgba(16,21,28,0.35) 40%, rgba(16,21,28,0.92) 100%);
-  }
-  .hero-content{
-    position:relative; z-index:2;
-    padding:0 5% 64px;
-    max-width:920px;
-    color:#fff;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px; letter-spacing:0.12em;
-    color:var(--brass-light);
-    text-transform:uppercase;
-    display:flex; align-items:center; gap:10px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{content:""; width:28px; height:1px; background:var(--brass-light);}
-  .hero h1{
-    font-size:clamp(2.4rem, 6vw, 4.6rem);
-    font-weight:600;
-    line-height:1.02;
-    margin-bottom:22px;
-  }
-  .hero p{
-    font-size:17px; max-width:560px; color:#d7dce2; margin-bottom:8px;
-  }
-
-  /* ---- Ledger strip ---- */
-  .ledger-strip{
-    display:flex; overflow-x:auto;
-    border-top:1px solid var(--hair); border-bottom:1px solid var(--hair);
-    background:var(--ink);
-  }
-  .ledger-strip::-webkit-scrollbar{display:none;}
-  .ledger-item{
-    flex:0 0 auto;
-    padding:16px 26px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-    color:#8b93a0;
-    border-right:1px solid #232b36;
-    white-space:nowrap;
-  }
-  .ledger-item b{color:var(--brass-light); margin-right:8px;}
-
-  /* ---- Section shell ---- */
-  section{padding:110px 5%;}
-  .section-head{max-width:640px; margin-bottom:56px;}
-  .section-head .eyebrow{color:var(--brass); }
-  .section-head .eyebrow::before{background:var(--brass);}
-  .section-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem); font-weight:600; color:var(--ink);}
-
-  /* ---- About ---- */
-  .about-grid{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:start;
-  }
-  .about-grid p{color:var(--steel); font-size:16px; margin-bottom:18px;}
-  .about-stats{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair);}
-  .stat-cell{background:#fff; padding:28px 24px;}
-  .stat-cell .num{font-family:'Space Grotesk',sans-serif; font-size:2.1rem; font-weight:700; color:var(--ink);}
-  .stat-cell .num span{color:var(--brass);}
-  .stat-cell .label{font-size:12.5px; color:var(--steel); margin-top:6px; text-transform:uppercase; letter-spacing:0.04em;}
-  @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
-
-  /* ---- Ecosystem index (signature) ---- */
-  .ecosystem{background:var(--ink); color:#fff;}
-  .ecosystem .section-head{color:#fff;}
-  .ecosystem .section-head .eyebrow{color:var(--brass-light);}
-  .ecosystem .section-head .eyebrow::before{background:var(--brass-light);}
-  .ecosystem .section-head h2{color:#fff;}
-  .ecosystem .section-head p{color:#9aa3af; margin-top:14px; font-size:15.5px;}
-
-  .index-list{border-top:1px solid #232b36;}
-  .index-row{
-    display:grid; grid-template-columns:70px 1fr 1.3fr 140px;
-    align-items:center; gap:24px;
-    padding:26px 0;
-    border-bottom:1px solid #232b36;
-    cursor:pointer;
-    transition:background .25s;
-  }
-  .index-row:hover{background:#161d26;}
-  .index-num{font-family:'IBM Plex Mono',monospace; color:#586170; font-size:14px;}
-  .index-name{font-family:'Space Grotesk',sans-serif; font-size:1.35rem; font-weight:600;}
-  .index-desc{color:#9aa3af; font-size:14.5px; line-height:1.6;}
-  .index-thumb{
-    width:140px; height:78px; border-radius:3px; overflow:hidden;
-    background:#1c2531;
-  }
-  .index-thumb img{width:100%; height:100%; object-fit:cover; filter:grayscale(15%);}
-  @media (max-width:760px){
-    .index-row{grid-template-columns:40px 1fr; grid-template-areas:"num name" "desc desc" "thumb thumb"; row-gap:10px;}
-    .index-thumb{width:100%; height:140px;}
-  }
-
-  /* ---- Leadership ---- */
-  .leader-wrap{
-    display:grid; grid-template-columns:340px 1fr; gap:64px;
-  }
-  .leader-photo{position:relative;}
-  .leader-photo img{border-radius:3px; filter:grayscale(6%);}
-  .leader-tag{
-    position:absolute; bottom:-16px; left:-16px;
-    background:var(--brass); color:#fff; padding:10px 16px;
-    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.05em;
-  }
-  .leader-copy h3{font-size:1.8rem; margin-bottom:6px;}
-  .leader-copy .role{color:var(--brass); font-weight:500; margin-bottom:20px; font-size:14.5px;}
-  .leader-copy p{color:var(--steel); margin-bottom:16px; font-size:15.5px;}
-  .quote-mark{font-family:'Space Grotesk',sans-serif; font-size:3rem; color:var(--brass-light); line-height:0.5; display:block; margin-bottom:8px;}
-  @media (max-width:860px){ .leader-wrap{grid-template-columns:1fr;} .leader-tag{position:static; display:inline-block; margin-top:14px;} }
-
-  /* ---- CTA / footer ---- */
-  .cta{
-    background:var(--paper);
-    text-align:center;
-    padding:120px 5%;
-    border-top:1px solid var(--hair);
-  }
-  .cta h2{font-size:clamp(2rem,4.5vw,3rem); max-width:760px; margin:0 auto 26px; font-weight:600;}
-  .cta p{color:var(--steel); max-width:480px; margin:0 auto 34px;}
-  .cta-buttons{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
-  .btn-primary, .btn-ghost{
-    padding:14px 28px; font-size:14px; font-weight:500; border-radius:2px;
-  }
-  .btn-primary{background:var(--ink); color:#fff;}
-  .btn-ghost{border:1px solid var(--hair); color:var(--ink);}
-
-  footer{
-    background:var(--ink); color:#7d8794;
-    padding:48px 5%;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;
-    font-size:13px;
-  }
-  footer .f-logo{color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:600; margin-bottom:8px; font-size:16px;}
-
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="pitch-banner">CONCEPT PREVIEW — a redesign direction for <b>coscharisgroup.net</b>, built from your real content, images and structure</div>
-
-<nav>
-  <div class="nav-logo">
-    <img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/logonew1.jpg" alt="Coscharis Group">
-  </div>
+<div class="utility-bar">
+  <div>KM 32 LEKKI&ndash;EPE EXPRESSWAY, AWOYAYA, LAGOS &middot; MON&ndash;FRI 08:30&ndash;17:30</div>
+  <div><a href="mailto:info@coscharisgroup.net">info@coscharisgroup.net</a> &middot; <a href="tel:+2348088526528">+234 808 852 6528</a></div>
+</div>
+<nav class="mainnav">
+  <a class="nav-logo" href="index.html"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/logonew1.jpg" alt="Coscharis Group"></a>
+  <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
   <div class="nav-links">
-    <a href="#about">Group Profile</a>
-    <a href="#ecosystem">Ecosystem</a>
-    <a href="#leadership">Leadership</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-item active"><a href="index.html">Home</a></div>
+    <div class="nav-item"><a href="about.html">About</a>
+      <div class="dropdown"><a href="about.html#profile">Group Profile</a>
+<a href="about.html#vision">Vision & Mission</a>
+<a href="about.html#ecosystem">Ecosystem</a>
+<a href="about.html#promise">Brand Promise</a></div>
+    </div>
+    <div class="nav-item"><a href="motors.html">Companies</a>
+      <div class="dropdown"><a href="motors.html"><span class="dd-num">01</span>Motors</a>
+<a href="technologies.html"><span class="dd-num">02</span>Technologies</a>
+<a href="mobility.html"><span class="dd-num">03</span>Mobility</a>
+<a href="motors-assembly.html"><span class="dd-num">04</span>Motors Assembly</a>
+<a href="beverages.html"><span class="dd-num">05</span>Beverages</a>
+<a href="medical.html"><span class="dd-num">06</span>Medical & Foods</a>
+<a href="farms.html"><span class="dd-num">07</span>Farms</a>
+<a href="ghana.html"><span class="dd-num">08</span>Ghana</a></div>
+    </div>
+    <div class="nav-item"><a href="leadership.html">Leadership</a></div>
+    <div class="nav-item"><a href="media.html">Media</a></div>
+    <div class="nav-item"><a href="contact.html">Contact</a></div>
+    <a class="nav-cta" href="contact.html">Get in touch</a>
   </div>
-  <a class="nav-cta" href="#contact">Get in touch</a>
 </nav>
 
 <section class="hero" style="padding:0;">
   <div class="hero-bg" style="background-image:url('https://coscharisgroup.net/wp-content/themes/coscharis1/images/2.jpg');"></div>
   <div class="hero-scrim"></div>
   <div class="hero-content">
-    <div class="eyebrow">Est. 1977 — Lagos, Nigeria</div>
+    <div class="eyebrow">Est. 1977 &mdash; Lagos, Nigeria</div>
     <h1>Timeless in its relevance.</h1>
-    <p>A wholly Nigerian conglomerate across automobile, technology, mobility, agriculture, healthcare and beverages — built from a one-man spare parts business into the sole Nigerian home of BMW, Rolls-Royce, Jaguar Land Rover and Ford.</p>
+    <p>A wholly Nigerian conglomerate across automobile, technology, mobility, agriculture, healthcare and beverages &mdash; the sole Nigerian home of BMW, Rolls-Royce, Jaguar Land Rover and Ford.</p>
   </div>
 </section>
-
-<div class="ledger-strip mono">
-  <div class="ledger-item"><b>01</b>Motors</div>
-  <div class="ledger-item"><b>02</b>Technologies</div>
-  <div class="ledger-item"><b>03</b>Mobility</div>
-  <div class="ledger-item"><b>04</b>Motors Assembly</div>
-  <div class="ledger-item"><b>05</b>Beverages</div>
-  <div class="ledger-item"><b>06</b>Medical &amp; Foods</div>
-  <div class="ledger-item"><b>07</b>Farms</div>
-  <div class="ledger-item"><b>08</b>Ghana</div>
-</div>
+<div class="ledger-strip"><a class="ledger-item mono" data-page="motors.html" href="motors.html"><b>01</b>Motors</a><a class="ledger-item mono" data-page="technologies.html" href="technologies.html"><b>02</b>Technologies</a><a class="ledger-item mono" data-page="mobility.html" href="mobility.html"><b>03</b>Mobility</a><a class="ledger-item mono" data-page="motors-assembly.html" href="motors-assembly.html"><b>04</b>Motors Assembly</a><a class="ledger-item mono" data-page="beverages.html" href="beverages.html"><b>05</b>Beverages</a><a class="ledger-item mono" data-page="medical.html" href="medical.html"><b>06</b>Medical & Foods</a><a class="ledger-item mono" data-page="farms.html" href="farms.html"><b>07</b>Farms</a><a class="ledger-item mono" data-page="ghana.html" href="ghana.html"><b>08</b>Ghana</a></div>
 
 <section id="about">
-  <div class="section-head reveal">
-    <div class="eyebrow">Group Profile</div>
-    <h2>Nearly five decades of Nigerian industry.</h2>
-  </div>
-  <div class="about-grid">
-    <div class="reveal">
-      <p>Coscharis Group began in 1977 with the importation and distribution of genuine automotive spare parts. That foundation grew into the sole Nigerian franchise of BMW, and later Jaguar Land Rover, Ford, MINI and — as only the second franchisee in Africa — Rolls-Royce.</p>
-      <p>Today the Group's interests reach well beyond the showroom floor: information technology, healthcare distribution, rice farming in Anambra, bottled water and yoghurt production, Ford vehicle assembly, and operations across Ghana — all under one founder-led vision to "build an institution that will be timeless in its relevance."</p>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow dark">Group Profile</div>
+      <h2>Nearly five decades of Nigerian industry.</h2>
+      <p>Coscharis Group began in 1977 with the importation and distribution of genuine automotive spare parts. That foundation grew into the sole Nigerian franchise of BMW, and later Jaguar Land Rover, Ford, MINI and &mdash; as only the second franchisee in Africa &mdash; Rolls-Royce.</p>
     </div>
-    <div class="about-stats reveal">
+    <div class="stat-grid reveal">
       <div class="stat-cell"><div class="num"><span>1977</span></div><div class="label">Founded by Dr. Cosmas Maduka</div></div>
       <div class="stat-cell"><div class="num">8</div><div class="label">Operating companies</div></div>
       <div class="stat-cell"><div class="num">2<span>nd</span></div><div class="label">Rolls-Royce franchise in Africa</div></div>
-      <div class="stat-cell"><div class="num">2</div><div class="label">Countries — Nigeria &amp; Ghana</div></div>
+      <div class="stat-cell"><div class="num">2</div><div class="label">Countries &mdash; Nigeria &amp; Ghana</div></div>
+    </div>
+    <div style="margin-top:32px;">
+      <a class="btn-ghost" href="about.html">Read the full group profile &rarr;</a>
     </div>
   </div>
 </section>
 
-<section id="ecosystem" class="ecosystem">
-  <div class="section-head reveal">
-    <div class="eyebrow">The Ecosystem</div>
-    <h2>Eight companies, one brand promise.</h2>
-    <p>Each subsidiary gets its own visual identity within the Group system — consistent enough to feel like one company, distinct enough to speak to its own market.</p>
-  </div>
-  <div class="index-list">
-    <div class="index-row reveal">
+<section id="ecosystem" class="bg-ink">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Ecosystem</div>
+      <h2>Eight companies, one brand promise.</h2>
+      <p>Each subsidiary carries its own identity within the Group system &mdash; explore the businesses that make up Coscharis.</p>
+    </div>
+    <div class="index-list">
+      
+    <a class="index-row reveal" href="motors.html" style="display:grid; text-decoration:none;">
       <div class="index-num">01</div>
       <div class="index-name">Motors</div>
-      <div class="index-desc">The flagship — sole Nigerian dealer for BMW, Rolls-Royce, Jaguar Land Rover, MINI and Ford, with showrooms and aftersales across ten cities.</div>
+      <div class="index-desc">The flagship &mdash; sole Nigerian dealer for BMW, Rolls-Royce, Jaguar Land Rover, MINI and Ford, with showrooms and aftersales across ten cities.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosmotorshead.png" alt="Coscharis Motors"></div>
-    </div>
-    <div class="index-row reveal">
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
+    <a class="index-row reveal" href="technologies.html" style="display:grid; text-decoration:none;">
       <div class="index-num">02</div>
       <div class="index-name">Technologies</div>
       <div class="index-desc">Distribution of hardware and ICT solutions for Nigeria's public and private sectors, with offices in Nigeria and Ghana.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/costechhead.png" alt="Coscharis Technologies"></div>
-    </div>
-    <div class="index-row reveal">
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
+    <a class="index-row reveal" href="mobility.html" style="display:grid; text-decoration:none;">
       <div class="index-num">03</div>
       <div class="index-name">Mobility</div>
-      <div class="index-desc">Sole franchise operator of SIXT Rent A Car in Nigeria — car rental, leasing, haulage and fleet management from four cities.</div>
+      <div class="index-desc">Sole franchise operator of SIXT Rent A Car in Nigeria &mdash; car rental, leasing, haulage and fleet management from four cities.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosmobhead.png" alt="Coscharis Mobility"></div>
-    </div>
-    <div class="index-row reveal">
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
+    <a class="index-row reveal" href="motors-assembly.html" style="display:grid; text-decoration:none;">
       <div class="index-num">04</div>
       <div class="index-name">Motors Assembly</div>
-      <div class="index-desc">Assembles the Ford Ranger in Ikeja — making Nigeria the only Ford assembly location in Africa outside South Africa.</div>
+      <div class="index-desc">Assembles the Ford Ranger in Ikeja &mdash; making Nigeria the only Ford assembly location in Africa outside South Africa.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosmalhead.png" alt="Coscharis Motors Assembly"></div>
-    </div>
-    <div class="index-row reveal">
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
+    <a class="index-row reveal" href="beverages.html" style="display:grid; text-decoration:none;">
       <div class="index-num">05</div>
       <div class="index-name">Beverages</div>
       <div class="index-desc">Table water, sachet water and yoghurt production out of Lagos and Anambra, distributed nationwide since 2002.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosbevhead.png" alt="Coscharis Beverages"></div>
-    </div>
-    <div class="index-row reveal">
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
+    <a class="index-row reveal" href="medical.html" style="display:grid; text-decoration:none;">
       <div class="index-num">06</div>
-      <div class="index-name">Medical &amp; Foods</div>
+      <div class="index-name">Medical & Foods</div>
       <div class="index-desc">Medical consultancy, diagnostic equipment and biomedical engineering support to hospitals since 1997.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosmedhead.png" alt="Coscharis Medical & Foods"></div>
-    </div>
-    <div class="index-row reveal">
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
+    <a class="index-row reveal" href="farms.html" style="display:grid; text-decoration:none;">
       <div class="index-num">07</div>
       <div class="index-name">Farms</div>
       <div class="index-desc">2,500 hectares of rice cultivation in Anambra, working toward becoming one of Nigeria's largest rice producers.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosfarmshead.png" alt="Coscharis Farms"></div>
-    </div>
-    <div class="index-row reveal">
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
+    <a class="index-row reveal" href="ghana.html" style="display:grid; text-decoration:none;">
       <div class="index-num">08</div>
       <div class="index-name">Ghana</div>
       <div class="index-desc">Auto spare parts and the Abro auto care brand, distributed through offices across four Ghanaian regions since 1992.</div>
       <div class="index-thumb"><img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosghanahead.png" alt="Coscharis Ghana"></div>
+      <div class="index-go mono">VIEW &rarr;</div>
+    </a>
     </div>
   </div>
 </section>
 
-<section id="leadership">
-  <div class="section-head reveal">
-    <div class="eyebrow">Leadership</div>
-    <h2>Founder-led since day one.</h2>
-  </div>
-  <div class="leader-wrap reveal">
-    <div class="leader-photo">
-      <img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosmas.jpg" alt="Dr. Cosmas Maduka">
-      <div class="leader-tag mono">FORBES AFRICA COVER — 2015</div>
-    </div>
-    <div class="leader-copy">
-      <span class="quote-mark">"</span>
-      <p style="font-size:19px; color:var(--ink); font-style:italic;">To build an institution that will be timeless in its relevance.</p>
-      <h3>Dr. Cosmas Maduka</h3>
-      <div class="role">Founder, President &amp; CEO, Coscharis Group</div>
-      <p>Started Coscharis Motors as a one-man business and built it into an indigenous conglomerate spanning manufacturing, ICT, auto care, automobile sales, and agriculture. Holder of an Honorary Doctorate from the University of Nigeria, Nsukka, and an alumnus of Harvard Business School's Executive Education Program. Conferred the National Honours of Commander of the Order of the Niger (CON) in 2012.</p>
+<section>
+  <div class="wrap">
+    <div class="leader-wrap reveal">
+      <div class="leader-photo">
+        <img src="https://coscharisgroup.net/wp-content/themes/coscharis1/images/cosmas.jpg" alt="Dr. Cosmas Maduka">
+        <div class="leader-tag mono">FORBES AFRICA COVER &mdash; 2015</div>
+      </div>
+      <div class="leader-copy">
+        <span class="quote-mark">&ldquo;</span>
+        <p style="font-size:18px; color:var(--ink); font-style:italic;">To build an institution that will be timeless in its relevance.</p>
+        <h3>Dr. Cosmas Maduka</h3>
+        <div class="role">Founder, President &amp; CEO, Coscharis Group</div>
+        <p>Started Coscharis Motors as a one-man business and built it into an indigenous conglomerate spanning manufacturing, ICT, auto care, automobile sales and agriculture. Conferred the National Honours of Commander of the Order of the Niger (CON) in 2012.</p>
+        <a class="btn-ghost" href="leadership.html">Meet the leadership team &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta" id="contact">
-  <div class="eyebrow" style="justify-content:center;">Next Step</div>
-  <h2>This is a direction, not a finished site.</h2>
-  <p>Built on your real logo, images, copy and company structure — to show what coscharisgroup.net could feel like on a modern, mobile-first stack.</p>
+<section class="bg-cloud">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow dark">Newsroom</div>
+      <h2>Latest from the Group.</h2>
+    </div>
+    <div class="press-list reveal">
+      
+    <div class="press-row">
+      <div class="p-date mono">2024</div>
+      <h4>Coscharis Group Promises Value For Money</h4>
+      <div class="p-link mono">READ &rarr;</div>
+    </div>
+    <div class="press-row">
+      <div class="p-date mono">2024</div>
+      <h4>Coscharis Motors Plc Unveils The New Renault Taliant At Abuja International Motor Fair</h4>
+      <div class="p-link mono">READ &rarr;</div>
+    </div>
+    <div class="press-row">
+      <div class="p-date mono">2024</div>
+      <h4>Geely Global Relaunches In Nigeria With Coscharis Motors Plc</h4>
+      <div class="p-link mono">READ &rarr;</div>
+    </div>
+    <div class="press-row">
+      <div class="p-date mono">2024</div>
+      <h4>Coscharis Group Founder Inducted As Fellow, Chartered Institute Of Directors</h4>
+      <div class="p-link mono">READ &rarr;</div>
+    </div>
+    </div>
+    <div style="margin-top:28px;"><a class="btn-ghost" href="media.html">View all news &amp; events &rarr;</a></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="eyebrow" style="justify-content:center;">Get In Touch</div>
+  <h2>Sales, aftersales, or partnership enquiries &mdash; we're across ten cities.</h2>
+  <p>Reach the right subsidiary directly, or send a general enquiry to the Group.</p>
   <div class="cta-buttons">
-    <a class="btn-primary" href="#">Walk through the full concept</a>
-    <a class="btn-ghost" href="#">See it next to the current site</a>
+    <a class="btn-primary" href="contact.html">Contact Coscharis</a>
+    <a class="btn-ghost" href="about.html">About the Group</a>
   </div>
 </section>
 
 <footer>
-  <div>
-    <div class="f-logo">COSCHARIS GROUP</div>
-    <div>Km 32 Lekki–Epe Expressway, Awoyaya, Lagos, Nigeria</div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-logo">COSCHARIS GROUP</div>
+        <p>A wholly Nigerian conglomerate spanning automobile, technology, mobility, agriculture, healthcare and beverages. Founded 1977.</p>
+      </div>
+      <div>
+        <h5>About</h5>
+        <ul>
+          <li><a href="about.html#profile">Group Profile</a></li>
+          <li><a href="about.html#vision">Vision &amp; Mission</a></li>
+          <li><a href="about.html#ecosystem">Ecosystem</a></li>
+          <li><a href="about.html#promise">Brand Promise</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Companies</h5>
+        <ul><li><a href="motors.html">Motors</a></li>
+<li><a href="technologies.html">Technologies</a></li>
+<li><a href="mobility.html">Mobility</a></li>
+<li><a href="motors-assembly.html">Motors Assembly</a></li>
+<li><a href="beverages.html">Beverages</a></li>
+<li><a href="medical.html">Medical & Foods</a></li>
+<li><a href="farms.html">Farms</a></li>
+<li><a href="ghana.html">Ghana</a></li></ul>
+      </div>
+      <div>
+        <h5>Group</h5>
+        <ul>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="media.html">News &amp; Events</a></li>
+          <li><a href="media.html#careers">Careers</a></li>
+          <li><a href="media.html#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="mailto:info@coscharisgroup.net">info@coscharisgroup.net</a></li>
+          <li><a href="tel:+2348088526528">+234 808 852 6528</a></li>
+          <li>Km 32 Lekki&ndash;Epe Expressway,<br>Awoyaya, Lagos, Nigeria</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <a href="about.html">Corporate Information</a>
+        <a href="media.html#careers">Careers</a>
+        <a href="contact.html">Site Map</a>
+        <a href="#">Privacy Statement</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+      <div>&copy; Coscharis Group 2026</div>
+    </div>
   </div>
-  <div class="mono">Redesign concept — prepared for pitch review</div>
 </footer>
 
-<script>
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
-  }, {threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
